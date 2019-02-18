@@ -1,0 +1,35 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"front_axis" [label="front_axis"];
+"left_front_steer" [label="left_front_steer"];
+"left_front_wheel" [label="left_front_wheel"];
+"right_front_steer" [label="right_front_steer"];
+"right_front_wheel" [label="right_front_wheel"];
+"imu" [label="imu"];
+"laser_link" [label="laser_link"];
+"rear_axis" [label="rear_axis"];
+"left_rear_wheel" [label="left_rear_wheel"];
+"right_rear_wheel" [label="right_rear_wheel"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "base_link_to_front_axis" [label="xyz: 0.16 0 0 \nrpy: 0 -0 0"]
+"base_link_to_front_axis" -> "front_axis"
+"front_axis" -> "front_axis_to_left_front_steer" [label="xyz: 0 0.08 0 \nrpy: 0 -0 0"]
+"front_axis_to_left_front_steer" -> "left_front_steer"
+"left_front_steer" -> "left_front_steer_to_left_front_wheel" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"left_front_steer_to_left_front_wheel" -> "left_front_wheel"
+"front_axis" -> "front_axis_to_right_front_steer" [label="xyz: 0 -0.08 0 \nrpy: 0 -0 0"]
+"front_axis_to_right_front_steer" -> "right_front_steer"
+"right_front_steer" -> "right_front_steer_to_right_front_wheel" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"right_front_steer_to_right_front_wheel" -> "right_front_wheel"
+"base_link" -> "base_link_to_imu" [label="xyz: -0.16 0 0.04 \nrpy: 0 -0 0"]
+"base_link_to_imu" -> "imu"
+"base_link" -> "base_link_to_laser_link" [label="xyz: 0.2 0 0 \nrpy: 0 -0 0"]
+"base_link_to_laser_link" -> "laser_link"
+"base_link" -> "base_link_to_rear_axis" [label="xyz: 0 -0.16 0 \nrpy: 0 -0 0"]
+"base_link_to_rear_axis" -> "rear_axis"
+"rear_axis" -> "rear_axis_to_left_rear_wheel" [label="xyz: 0 0.07 0 \nrpy: 0 -0 0"]
+"rear_axis_to_left_rear_wheel" -> "left_rear_wheel"
+"rear_axis" -> "rear_axis_to_right_rear_wheel" [label="xyz: 0 -0.07 0 \nrpy: 0 -0 0"]
+"rear_axis_to_right_rear_wheel" -> "right_rear_wheel"
+}
